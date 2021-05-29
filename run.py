@@ -66,16 +66,7 @@ def get_coffee_consumption():
     return result # optional
 
 if __name__=="__main__":
+    # initialize database
     db.create_all()
+    # call infinite loop
     get_user_input()
-
-
-
-    # threading.Thread(get_user_input, ())
-    #app.run(debug=True, threaded=True)
-
-    # b = threading.Thread(name='background', target=get_user_input)
-    # f = threading.Thread(name='foreground', target=app.run(debug=True, threaded=True))
-    # b.start()
-    # f.start()
-
