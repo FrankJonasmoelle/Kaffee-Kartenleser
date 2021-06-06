@@ -1,5 +1,7 @@
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
+from apscheduler.schedulers.background import BackgroundScheduler
 import pandas as pd
 import openpyxl
 import time
@@ -15,8 +17,10 @@ db = SQLAlchemy(app)
 # follows the following structure:
 # cardnumber: "name"
 NAME_MAPPING = {
-    260629: "Jonas Frankemölle"
+    260629: "Jonas Frankemölle",
+    244684: "Thomas Wiedemann"
 }
+
 
 # Database Model
 class CoffeeModel(db.Model):
@@ -68,5 +72,11 @@ def get_coffee_consumption():
 if __name__=="__main__":
     # initialize database
     db.create_all()
+    
+    # instantiate scheduler to execute 'get_coffee_consumption' at the end of each month
+    sched = BackgroundScheduler(deamon=True)
+    sched.add_job(get_coffee_consumption, 'cron', day='last')
+    sched.start()
+    
     # call infinite loop
     get_user_input()
