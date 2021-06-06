@@ -5,7 +5,7 @@ FROM python:3.9.5
 ADD run.py .
 
 # Install packages 
-RUN pip install flask_sqlalchemy flask pandas openpyxl
+RUN pip install flask_sqlalchemy flask pandas openpyxl APScheduler
 
 # How to run it
 CMD ["python", "./run.py"]
