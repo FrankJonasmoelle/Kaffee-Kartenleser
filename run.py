@@ -22,15 +22,6 @@ COFFEE_PRICE = 0.7
 # cardnumber: "name"
 NAME_MAPPING = {
     260629: "Jonas Frankemölle",
-    244684: "Thomas Wiedemann",
-    260647: "Sooyeon Cho", 
-    260009: "Borja Sanchez",
-    248061: "Constantin Radzio",
-    260762: "Julius Erdmann",
-    505823: "Julia Neubert",
-    239024: "Sabrina Mothes",
-    246025: "Marc-David Jung",
-    247394: "Marius Mutter"
 }
 
 # Database Model
